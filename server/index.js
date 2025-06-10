@@ -17,12 +17,12 @@ app.get('/',(req,res) => {
     res.send('Welcome to the API');
 })
 
-app.post('/register', async (req,res)=>{
+app.post('/signup', async (req,res)=>{
     const {username, email, password} = req.body;
     try{
         const existing = await User.findOne({username:username});
         if(existing) res.status(404).json({message:"User already Exist."});
-
+s
         const hashed = await bcrypt.hash(password,10);
         const newUser =await User.create({username,email,password:hashed});
 
@@ -33,6 +33,28 @@ app.post('/register', async (req,res)=>{
         res.status(500).json({message:'signup failed',error:err.message});
     }
 });
+
+app.post('signin',async (req,res)=>{
+    const {signin, password} = req.body();
+    
+    try{
+        const user =await User.find({username:signin});
+        if(!user){
+            user =await User.find({email:signin});
+        }
+        if(!user){
+            res.status(400).json({message:"user not found"});
+        }
+        const ismatch = await bcrypt.compare(password,user.password);
+
+        if(!ismatch){res.status(400).json({message:"Invalid credential"});}
+
+        const token = jwt.sign({id: user._id},process.env.JWT_SECRET,{expiresIn:'7d'});
+        res.status(200).json({user,token});
+    }catch(err){
+        res.status(500).json({error:err.message})
+    }
+})
 
 
 mongoose.connect(process.env.MONGO_URI,)
