@@ -21,9 +21,6 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        minlength:8,
-        maxlength:16,
-        match:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/ // Regex for password validation
     }
 },{timestamps: true});
 
