@@ -8,7 +8,8 @@ const {
     deleteBlog,
     toggleLike,
     addComment,
-    addReply
+    addReply,
+    getComment,
 } = require("../controllers/blogController");
 const authMiddleware = require("../middleware/authMiddleware");
 
@@ -25,7 +26,9 @@ router.delete('/:id',authMiddleware,deleteBlog);
 router.post('/:id/like',authMiddleware,toggleLike);
 // comment
 router.post('/:id/comment',authMiddleware,addComment);
+router.get('/:id/comment',getComment)
 // replies
 router.post('/:blogId/comment/:commentId/reply',authMiddleware,addReply);
+// router.get('/:blogId/comment/:commentId/reply',getReply);
 
-model.exports = router;
+module.exports = router;
