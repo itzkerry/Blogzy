@@ -7,5 +7,10 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("tailwindcss-animate")],
+  darkMode:'class',
+  plugins: [require("tailwindcss-animate"),
+    require('@tailwindcss/line-clamp'),
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
+  
 }

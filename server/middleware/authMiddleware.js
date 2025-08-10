@@ -4,7 +4,7 @@ const User = require("../models/user");
 const authMiddleware = async (req,res,next) =>{
 
     const authHeader = req.headers.authorization; // get the header from
-    console.log("auth: " + authHeader);
+    // console.log("auth: " + authHeader);
     if(!authHeader || !authHeader.startsWith("Bearer ")){
         res.status(401).json({message:"No Token Provided"});
     }

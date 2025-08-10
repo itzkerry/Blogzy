@@ -9,12 +9,15 @@ require('dotenv').config();
 const User = require('./models/user');
 const blogRoutes = require('./routes/blogRoutes');
 const authRoutes = require('./routes/authRoutes');
+const profileRoutes = require('./routes/profileRoutes');
 const authMiddleware = require("./middleware/authMiddleware");
+const morgan = require('morgan');
 
 
 // Initialize express app and middleware
 const app = express();  
 
+app.use(morgan('dev')); // log requests to the console
 app.use(cors()); // allow cross-origin request
 app.use(express.json());
 
@@ -26,9 +29,11 @@ app.use('/api/auth',authRoutes);
 
 app.use('/api/blogs',blogRoutes);
 
-mongoose.connect(process.env.MONGO_URI,)
+app.use('/api/profile',profileRoutes);
+
+mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         console.log("Connected to MongoDB");
-        app.listen(5000,()=>{console.log("server on http://localhost:5000")});
+        app.listen(5000,'0.0.0.0',()=>{console.log("server on http://localhost:5000")});
     })
     .catch(err=>console.log(err));
