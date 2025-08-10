@@ -3,21 +3,24 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require("jsonwebtoken");
 require('dotenv').config();
 const User = require('./models/user');
 const blogRoutes = require('./routes/blogRoutes');
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
-const authMiddleware = require("./middleware/authMiddleware");
 const morgan = require('morgan');
 
 
 // Initialize express app and middleware
 const app = express();  
 
-app.use(morgan('dev')); // log requests to the console
+// log requests to the console
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev")); // short colored logs for local dev
+} else {
+  app.use(morgan("combined")); // standard Apache style logs
+}
+
 app.use(cors()); // allow cross-origin request
 app.use(express.json());
 

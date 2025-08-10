@@ -2,7 +2,6 @@ import useViewBlogStore from '@/app/store/viewBlogStore';
 import BlogContent from '@/utils/BlogContent';
 import { createdAt } from '@/utils/createdAt';
 import { debounce } from '@/utils/debounce';
-import Editor from '@/utils/Editor';
 import { Bookmark, BookmarkPlus, Heart, MessageCircleMore } from 'lucide-react';
 import React, { useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast';

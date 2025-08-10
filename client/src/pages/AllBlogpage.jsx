@@ -1,9 +1,8 @@
-import { useEffect, useState, useRef } from "react";
-import { ThumbsUp, MessageCircleMore, Bookmark } from "lucide-react"
+import { useEffect, useRef } from "react";
 import BlogCard from "../components/BlogCard";
 import useBlogStore from "@/app/store/blogStore";
 import BlogCardSkeleton from "@/components/BlogCardSkeleton";
-import { NavLink, useParams, useSearchParams } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import useUserStore from "@/app/store/userStore";
 
 
