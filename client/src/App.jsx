@@ -4,7 +4,7 @@ import AuthPage from './pages/AuthPage'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import LandingPage from './pages/LandingPage'
-import Layout from './Layouts/layout'
+import Layout from './Layouts/Layout'
 import AllBlogPage from './pages/AllBlogpage'
 import CreatePostPage from './pages/CreateBlog'
 
