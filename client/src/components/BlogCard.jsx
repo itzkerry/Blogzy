@@ -40,7 +40,7 @@ const BlogCard = ({ blog }) => {
                                 </div>
                                 {/* blog cover image */}
                                 <div className="w-[30%] flex justify-end items-start">
-                                    <div className="h-16 sm:h-26 aspect-[160/107] object-cover overflow-hidden ">
+                                    <div className="h-16 sm:h-26 aspect-[160/107] object-cover overflow-hidden flex items-center">
                                         <img src={blog?.coverImage?.url}
                                             alt="cover image" loading={lazy} />
                                     </div>

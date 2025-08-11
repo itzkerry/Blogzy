@@ -51,7 +51,7 @@ const extensions = [TextStyleKit,
 
   return (
      <div
-      className="tiptap editor" // custom class
+      className="tiptap editor blog-content" // custom class
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )

@@ -1,6 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 
+.blog-content{ /*To preserve the new lines when displaying the blog */
+  p:empty::before {
+    content: "\00A0"; /* non-breaking space so the paragraph stays visible */
+    display: block;
+    height: 1em; /* adjust spacing */
+  }
+}
+
 .editor ::selection {
   background-color: #bae6fd; /* sky-200 */
   color: #0c4a6e;            /* sky-900 */
