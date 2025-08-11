@@ -6,8 +6,11 @@ const jwt = require('jsonwebtoken');
 exports.signup = async (req,res)=>{
     const {username, email, password} = req.body;
     try{
-        const existing = await User.findOne({username});
+        let existing = await User.findOne({username});
         if(existing) return res.status(404).json({message:"User already Exist."});
+        existing = await User.findOne({email});
+        if(existing) return res.status(404).json({message:"Email already registered."});
+
 
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
         if(!passwordRegex.test(password)){
