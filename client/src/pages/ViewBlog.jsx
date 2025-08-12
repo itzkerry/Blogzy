@@ -90,7 +90,7 @@ const ViewBlog = () => {
     
                   <div  className="flex justify-start items-center gap-4 ">
                     <Link to={`/profile/${author?.username}`} className="w-10 h-10 bg-gray-200 rounded-full overflow-hidden cursor-pointer">
-                      <img src={author?.avatar.url || `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(author?.username)}`} alt="avatar" />
+                      <img src={author?.avatar?.url || `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(author?.username)}`} alt="avatar" />
                     </Link>
                     <Link to={`/profile/${author?.username}`} className="text-sm font-semibold cursor-pointer">{author?.username}</Link>
                     <p className='text-sm text-gray-500 font-medium'>{createdAt(created)}</p>
