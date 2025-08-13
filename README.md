@@ -28,7 +28,7 @@
 
 ## 🌐 Live Demo
 
-🔗 **Frontend:** [Live Website](blogzy-vert.vercel.app)   
+🔗 **Frontend:** [Live Website](https://blogzy-vert.vercel.app)   
 
 ---
 
